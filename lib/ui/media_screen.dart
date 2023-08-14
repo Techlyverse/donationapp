@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 
 class MediaScreen extends StatefulWidget {
   const MediaScreen({Key? key}) : super(key: key);
-  
 
   @override
   State<MediaScreen> createState() => _MediaScreenState();
@@ -19,7 +18,7 @@ class _MediaScreenState extends State<MediaScreen> {
       ),
       body: FutureBuilder<QuerySnapshot>(
         future: FirebaseFirestore.instance.collection("media").get(),
-        builder: (_, snapshot){
+        builder: (_, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasError) {
@@ -63,7 +62,7 @@ class _MediaScreenState extends State<MediaScreen> {
                           child: Align(
                             alignment: Alignment.centerLeft,
                             child: Text(
-                              snapshot.data!.docs[index]['quote'],
+                              snapshot.data!.docs[index]['message'],
                               style: const TextStyle(
                                   fontSize: 22,
                                   color: Colors.white,
@@ -78,22 +77,8 @@ class _MediaScreenState extends State<MediaScreen> {
           } else {
             return const Center(child: Text("no data found"));
           }
-          
-          
-          
-          
-          
         },
       ),
-      
-      
-      
-      
-      
-      
-      
-      
-     
     );
   }
 }

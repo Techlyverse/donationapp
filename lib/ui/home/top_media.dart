@@ -9,7 +9,7 @@ class TopMedia extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<DocumentSnapshot>(
-        future: FirebaseFirestore.instance.collection("media").doc("media1").get(),
+        future: FirebaseFirestore.instance.collection("media").doc("1685076620020").get(),
         builder: (_, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
@@ -68,7 +68,7 @@ class TopMedia extends StatelessWidget {
                         child: Align(
                           alignment: Alignment.centerLeft,
                           child: Text(
-                            snapshot.data!['quote'],
+                            snapshot.data!['message'],
                             style: const TextStyle(
                                 fontSize: 22,
                                 color: Colors.white,
